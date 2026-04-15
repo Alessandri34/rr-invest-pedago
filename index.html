@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB VISION | L'Écosystème Éducatif Invest For Real</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050A18',
+                            card: '#0A1128',
+                            blue: '#0047FF',
+                            gold: '#C9A66B',
+                            lightGold: '#F0E68C',
+                            text: '#E5E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-gold': '0 0 20px rgba(201, 166, 107, 0.3)',
+                        'glow-blue': '0 0 30px rgba(0, 71, 255, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050A18;
+            color: #E5E8F0;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 71, 255, 0.1) 0%, rgba(5, 10, 24, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass-card {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(201, 166, 107, 0.4);
+            transform: translateY(-5px);
+            background: rgba(10, 17, 40, 0.8);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #C9A66B, #F0E68C, #C9A66B);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="ambient-glow top-0 right-0 opacity-50"></div>
+    <div class="ambient-glow bottom-0 left-0 opacity-30" style="background: radial-gradient(circle, rgba(201, 166, 107, 0.08) 0%, rgba(5, 10, 24, 0) 70%);"></div>
+
+    <!-- Header -->
+    <header class="py-6 border-b border-white/5 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="Ressurce Branding/LOGO.png" alt="Invest For Real" class="logo-image group-hover:scale-110 transition-transform">
+                <div class="flex flex-col">
+                    <span class="font-heading font-black text-white tracking-wider leading-none text-2xl">INVEST</span>
+                    <span class="text-[10px] text-brand-gold tracking-[0.3em] font-bold">FOR REAL</span>
+                </div>
+            </a>
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="https://t.me/+5Ula4HJ44uBhNDc0" target="_blank" class="px-6 py-2 bg-brand-gold text-brand-dark font-bold rounded-full text-sm hover:scale-105 transition-all">ACCÈS VIP TELEGRAM</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-20 relative">
+        
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-brand-gold text-sm font-bold tracking-[0.3em] uppercase mb-4 block">Portail Éducatif</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-black mb-6">
+                L'HUB <span class="text-gold-gradient">VISION</span>
+            </h1>
+            <p class="text-brand-muted max-w-2xl mx-auto text-lg">
+                Votre arsenal complet pour maîtriser les marchés financiers. De la technique à la psychologie, tout l'écosystème Invest For Real à portée de clic.
+            </p>
+        </div>
+
+        <!-- Grid Modules -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- 1. Guide Inscription -->
+            <a href="guide-inscription-signaux.html" class="glass-card p-8 rounded-3xl flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/20 flex items-center justify-center text-brand-blue mb-6 border border-brand-blue/20">
+                        <i class="fa-solid fa-user-plus text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3 font-heading">Inscription Signaux</h2>
+                    <p class="text-brand-muted text-sm leading-relaxed">Le guide pas à pas pour configurer votre compte broker FXcess et rejoindre le canal VIP Telegram.</p>
+                </div>
+                <div class="mt-8 flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                    Ouvrir le guide <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 2. Scaling Roadmap -->
+            <a href="scaling-roadmap.html" class="glass-card p-8 rounded-3xl flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-brand-gold mb-6 border border-brand-gold/20">
+                        <i class="fa-solid fa-chart-line text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3 font-heading">Scaling Roadmap</h2>
+                    <p class="text-brand-muted text-sm leading-relaxed">Visualisez la puissance des intérêts composés et projetez votre ascension financière sur 24 mois.</p>
+                </div>
+                <div class="mt-8 flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                    Lancer la simulation <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 3. Tutoriel Prise de Trade -->
+            <a href="tuto-prise-trade.html" class="glass-card p-8 rounded-3xl flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center text-purple-500 mb-6 border border-purple-500/20">
+                        <i class="fa-solid fa-play text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3 font-heading">Maîtrise MT4</h2>
+                    <p class="text-brand-muted text-sm leading-relaxed">Tutoriel complet sur l'exécution des ordres, le placement des TP/SL et la sécurisation des positions.</p>
+                </div>
+                <div class="mt-8 flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                    Apprendre l'exécution <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 4. Dictionnaire -->
+            <a href="dictionnaire-trading.html" class="glass-card p-8 rounded-3xl flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-500 mb-6 border border-emerald-500/20">
+                        <i class="fa-solid fa-book text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3 font-heading">Lexique Élite</h2>
+                    <p class="text-brand-muted text-sm leading-relaxed">Parlez la langue des 1%. Toutes les définitions techniques indispensables expliquées simplement.</p>
+                </div>
+                <div class="mt-8 flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                    Consulter le dico <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 5. Calculateur Risque -->
+            <a href="calculateur-risk.html" class="glass-card p-8 rounded-3xl flex flex-col justify-between group md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="500">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-red-500/20 flex items-center justify-center text-red-500 mb-6 border border-red-500/20">
+                        <i class="fa-solid fa-calculator text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3 font-heading">Gestion de Risque</h2>
+                    <p class="text-brand-muted text-sm leading-relaxed">Calculateur de lots automatique. Ne risquez plus jamais votre capital au hasard.</p>
+                </div>
+                <div class="mt-8 flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                    Calculer mon risque <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 6. Checklist du Trader -->
+            <a href="checklist-trading.html" class="glass-card p-8 rounded-3xl flex flex-col justify-between group border-brand-gold/30 bg-brand-gold/5" data-aos="fade-up" data-aos-delay="600">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-brand-gold mb-6 border border-brand-gold/20">
+                        <i class="fa-solid fa-clipboard-check text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3 font-heading">Checklist Élite</h2>
+                    <p class="text-brand-muted text-sm leading-relaxed">Les 10 commandements de discipline à valider avant chaque trade pour protéger votre capital.</p>
+                </div>
+                <div class="mt-8 flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                    Ouvrir la checklist <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="py-12 border-t border-white/5 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">&copy; 2026 Invest For Real - Excellence, Vision & Rentabilité</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

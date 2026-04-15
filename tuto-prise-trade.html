@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriel Exécution Élite | Invest For Real</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050A18',
+                            card: '#0A1128',
+                            blue: '#0047FF',
+                            gold: '#C9A66B',
+                            lightGold: '#F0E68C',
+                            text: '#E5E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050A18;
+            color: #E5E8F0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(0, 71, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(201, 166, 107, 0.05) 0%, transparent 40%);
+        }
+
+        .glass-card {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #C9A66B, #F0E68C, #C9A66B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step-tag {
+            padding: 4px 12px;
+            background: rgba(0, 71, 255, 0.1);
+            color: #0047FF;
+            font-size: 10px;
+            font-weight: 900;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 71, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .step-number {
+            font-size: 5rem;
+            font-weight: 950;
+            color: rgba(255, 255, 255, 0.02);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            line-height: 1;
+            z-index: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .screenshot-box {
+            background: #000;
+            border: 1.5px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 28px;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .screenshot-box:hover {
+            border-color: #C9A66B;
+            background: rgba(201, 166, 107, 0.03);
+            transform: scale(1.02);
+        }
+
+        .signal-mockup {
+            background: rgba(13, 20, 37, 0.8);
+            border-left: 3px solid #0047FF;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 12px;
+            border-radius: 8px;
+            color: #E5E8F0;
+        }
+
+        .coach-alert {
+            background: rgba(201, 166, 107, 0.07);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(201, 166, 107, 0.15);
+        }
+
+        .mt4-rule {
+            background: rgba(0, 71, 255, 0.05);
+            border: 1px solid rgba(0, 71, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="py-6 border-b border-white/5 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="rr-invest-final.html" class="flex items-center gap-3">
+                <img src="Ressurce Branding/LOGO.png" alt="Invest For Real" class="w-10 h-10 object-contain">
+                <div class="flex flex-col text-left">
+                    <span class="font-heading font-black text-white tracking-wider leading-none text-xl">INVEST</span>
+                    <span class="text-[8px] text-brand-gold tracking-[0.3em] font-bold">FOR REAL</span>
+                </div>
+            </a>
+            <a href="hub-vision.html" class="text-xs font-bold text-brand-gold hover:text-white transition-colors uppercase tracking-[0.2em] flex items-center gap-2">
+                <i class="fa-solid fa-grid-2"></i> Dashboard Hub
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-20">
+        
+        <div class="text-center mb-24" data-aos="fade-up">
+            <span class="text-brand-gold text-xs font-bold tracking-[0.5em] uppercase mb-4 block italic">Execution Protocol</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
+                TUTORIEL <span class="text-gold-gradient">D'EXÉCUTION</span>
+            </h1>
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                Transformez chaque signal VIP en une transaction chirurgicale. Suivez les étapes de gestion du capital Invest For Real.
+            </p>
+        </div>
+
+        <div class="space-y-32">
+            
+            <!-- STEP 1: SIGNAL DECODING -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-aos="fade-up">
+                <div class="relative group order-2 lg:order-1">
+                    <div class="step-number">01</div>
+                    <div class="relative z-10">
+                        <span class="step-tag mb-4 block w-fit">Analyse</span>
+                        <h3 class="text-3xl font-bold text-white mb-6 font-heading uppercase tracking-tighter">Décryptage du Signal</h3>
+                        <p class="text-brand-muted text-base leading-relaxed mb-8">
+                            Chaque signal publié sur le canal VIP suit une structure stricte. Vous devez identifier immédiatement trois variables : l'actif, le sens du trade et la zone de prix.
+                        </p>
+                        
+                        <div class="signal-mockup mb-8 border-brand-blue/30 shadow-lg">
+                            <span class="text-brand-blue font-bold">🔴 SIGNAL SELL - #XAUUSD (OR)</span><br>
+                            Type: Market Execution<br>
+                            📍 PE: 2034.50<br>
+                            🛑 SL: 2038.00<br>
+                            🎯 TP1: 2030.00 | TP2: 2024.00 | TP3: 2015.00
+                        </div>
+
+                        <div class="coach-alert flex gap-4">
+                            <i class="fa-solid fa-triangle-exclamation text-brand-gold text-lg"></i>
+                            <p class="text-xs text-gray-400">
+                                <b class="text-brand-gold uppercase">Focus :</b> Identifiez bien les 3 Take Profits (TP1, TP2, TP3). Ils sont la clé de votre scaling out.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="screenshot-box">
+                        <div class="text-center p-8">
+                            <i class="fa-brands fa-telegram text-4xl text-white/10 mb-4 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Message Telegram VIP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: RISK CALCULATION -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-aos="fade-up">
+                <div class="order-2 lg:order-2">
+                    <div class="relative group">
+                        <div class="step-number">02</div>
+                        <div class="relative z-10">
+                            <span class="step-tag mb-4 block w-fit">Affectation du Capital</span>
+                            <h3 class="text-3xl font-bold text-white mb-6 font-heading uppercase tracking-tighter">Ingénierie du Lot (45/35/20)</h3>
+                            <p class="text-brand-muted text-base leading-relaxed mb-8">
+                                Pour maximiser la rentabilité tout en sécurisant les gains, nous divisons notre volume total en <b>3 positions distinctes</b> :
+                            </p>
+                            
+                            <div class="grid grid-cols-1 gap-4 mb-8">
+                                <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
+                                    <div class="flex items-center gap-3 font-bold text-xs uppercase">
+                                        <div class="w-8 h-8 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">A</div>
+                                        <span>Position TP1</span>
+                                    </div>
+                                    <span class="text-brand-gold font-black">45% du lot</span>
+                                </div>
+                                <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
+                                    <div class="flex items-center gap-3 font-bold text-xs uppercase">
+                                        <div class="w-8 h-8 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">B</div>
+                                        <span>Position TP2</span>
+                                    </div>
+                                    <span class="text-brand-gold font-black">35% du lot</span>
+                                </div>
+                                <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
+                                    <div class="flex items-center gap-3 font-bold text-xs uppercase">
+                                        <div class="w-8 h-8 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">C</div>
+                                        <span>Position TP3</span>
+                                    </div>
+                                    <span class="text-brand-gold font-black">20% du lot</span>
+                                </div>
+                            </div>
+
+                            <a href="calculateur-risk.html" class="inline-flex items-center gap-4 px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl text-xs uppercase tracking-widest hover:bg-brand-blue transition-all group">
+                                Utiliser le Calculateur <i class="fa-solid fa-calculator group-hover:rotate-12"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-1">
+                    <div class="screenshot-box">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-calculator text-4xl text-white/10 mb-4 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Résultats Calculateur Invest For Real</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3: SETUP MT4 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-aos="fade-up">
+                <div class="order-2 lg:order-1">
+                    <div class="relative group">
+                        <div class="step-number">03</div>
+                        <div class="relative z-10">
+                            <span class="step-tag mb-4 block w-fit">Infrastructure</span>
+                            <h3 class="text-3xl font-bold text-white mb-6 font-heading uppercase tracking-tighter">Préparation sur MT4</h3>
+                            <p class="text-brand-muted text-base leading-relaxed mb-8">
+                                Préparez votre interface de trading. Vous allez devoir être rapide pour ouvrir vos 3 positions au plus proche du prix d'entrée (PE).
+                            </p>
+                            
+                            <div class="p-5 bg-black/40 rounded-2xl border border-white/5">
+                                <span class="text-brand-gold text-[10px] font-black uppercase block mb-1 tracking-widest">Action Immédiate :</span>
+                                <p class="text-xs text-gray-400">Cherchez l'actif dans vos cotations, cliquez dessus et préparez-vous à ouvrir le premier des 3 ordres.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="screenshot-box">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-magnifying-glass-chart text-4xl text-white/10 mb-4 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Liste des Cotations MT4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: ORDER EXECUTION -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-aos="fade-up">
+                <div class="order-2 lg:order-2">
+                    <div class="relative group">
+                        <div class="step-number">04</div>
+                        <div class="relative z-10">
+                            <span class="step-tag mb-4 block w-fit">Exécution</span>
+                            <h3 class="text-3xl font-bold text-white mb-6 font-heading uppercase tracking-tighter">Ouverture des 3 Trades</h3>
+                            <p class="text-brand-muted text-base leading-relaxed mb-6">
+                                <b>TRÈS IMPORTANT :</b> Sur MetaTrader 4, pour viser 3 objectifs différents, vous devez ouvrir **3 ordres séparés**.
+                            </p>
+                            
+                            <div class="mt4-rule">
+                                <p class="text-xs text-white leading-relaxed">
+                                    <i class="fa-solid fa-circle-info text-brand-blue mr-2"></i>
+                                    Ouvrez l'ordre 3 fois de suite avec : <br>
+                                    - **Même PE & Même SL** pour les trois. <br>
+                                    - **Lot & TP Différent** pour chaque ordre (Ordre 1 = TP1 / Ordre 2 = TP2 / Ordre 3 = TP3).
+                                </p>
+                            </div>
+
+                            <div class="mt-8 space-y-3">
+                                <div class="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-[10px] uppercase font-bold text-red-500">
+                                    <i class="fa-solid fa-shield mr-2"></i> STOP LOSS identique sur les 3 positions
+                                </div>
+                                <div class="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-[10px] uppercase font-bold text-emerald-500">
+                                    <i class="fa-solid fa-crosshairs mr-2"></i> TAKE PROFITS échelonnés (TP1, TP2, TP3)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-1">
+                    <div class="screenshot-box border-brand-blue/30 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-blue-500/5 animate-pulse"></div>
+                        <div class="text-center p-8 relative z-10">
+                            <i class="fa-solid fa-bolt-lightning text-4xl text-brand-blue mb-4 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Panneau d'Ordre (Ordre 1/3)</span>
+                            <p class="text-[9px] text-gray-600 mt-2 italic px-10 text-center">Montrez l'ordre configuré avec le lot correspondant à 45% et la cible TP1.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 5: MANAGEMENT -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-aos="fade-up">
+                <div class="order-2 lg:order-1">
+                    <div class="relative group">
+                        <div class="step-number">05</div>
+                        <div class="relative z-10">
+                            <span class="step-tag mb-4 block w-fit">Management</span>
+                            <h3 class="text-3xl font-bold text-white mb-6 font-heading uppercase tracking-tighter">Sécurisation & Break-Even</h3>
+                            <p class="text-brand-muted text-base leading-relaxed mb-6">
+                                Dès que le prix touche le **TP1** (Position A), vos profits sont sécurisés. C'est le moment d'éliminer tout risque sur les positions restantes.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="p-6 glass-card rounded-3xl border-brand-gold/30">
+                                    <h4 class="text-brand-gold font-black text-xs uppercase tracking-widest mb-3">Protocole Sécurisation :</h4>
+                                    <p class="text-xs text-brand-muted leading-relaxed">
+                                        1. L'Ordre A se ferme automatiquement avec profit.<br><br>
+                                        2. **Break-Even (BE) :** Modifiez immédiatement les Stop Loss des Ordres B et C pour les placer à votre prix d'entrée.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="screenshot-box">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-shield-halved text-4xl text-white/10 mb-4 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Modification SL (Break-Even)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <section class="py-32 bg-brand-card/20 border-y border-white/5 mt-24">
+        <div class="max-w-4xl mx-auto px-6 text-center" data-aos="zoom-in">
+            <h2 class="font-heading text-3xl font-bold mb-6 italic">DISCIPLINE > ÉMOTIONS</h2>
+            <p class="text-brand-muted text-lg mb-12">Chaque trade est une brique. Construisez votre rentabilité avec rigueur. 3 TPs. 3 Ordres. 1 Stratégie Élite.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="calculateur-risk.html" class="px-10 py-5 bg-brand-blue text-white font-bold rounded-2xl text-xs uppercase tracking-[0.2em] shadow-glow-blue hover:scale-105 transition-all">
+                    Ouvrir le Calculateur
+                </a>
+                <a href="hub-vision.html" class="px-10 py-5 bg-white/5 border border-white/10 text-white font-bold rounded-2xl text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all">
+                    Retour au Hub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center opacity-40">
+        <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Invest For Real &copy; 2026 - Systèmes de Trading Haute Précision</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

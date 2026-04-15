@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide d'Inscription VIP | Invest For Real</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050A18',
+                            card: '#0A1128',
+                            blue: '#0047FF',
+                            gold: '#C9A66B',
+                            lightGold: '#F0E68C',
+                            text: '#E5E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050A18;
+            color: #E5E8F0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 71, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(201, 166, 107, 0.05) 0%, transparent 50%);
+        }
+
+        .glass-card {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(201, 166, 107, 0.3);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #C9A66B, #F0E68C);
+            color: #050A18;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(201, 166, 107, 0.3);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .screenshot-placeholder {
+            background: #000;
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-placeholder:hover {
+            border-color: #C9A66B;
+            background: rgba(201, 166, 107, 0.02);
+        }
+
+        .coach-note {
+            background: rgba(201, 166, 107, 0.05);
+            border-left: 4px solid #C9A66B;
+            padding: 20px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 20px;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #C9A66B, #F0E68C, #C9A66B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-elite {
+            background: linear-gradient(135deg, #0047FF, #002BB3);
+            box-shadow: 0 0 25px rgba(0, 71, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-elite:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 0 35px rgba(0, 71, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="py-6 border-b border-white/5 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="rr-invest-final.html" class="flex items-center gap-3 group">
+                <img src="Ressurce Branding/LOGO.png" alt="Invest For Real" class="w-10 h-10 object-contain group-hover:scale-110 transition-transform">
+                <div class="flex flex-col text-left">
+                    <span class="font-heading font-black text-white tracking-wider leading-none text-xl">INVEST</span>
+                    <span class="text-[8px] text-brand-gold tracking-[0.3em] font-bold">FOR REAL</span>
+                </div>
+            </a>
+            <a href="hub-vision.html" class="text-xs font-bold text-brand-gold hover:text-white transition-colors uppercase tracking-[0.2em] flex items-center gap-2">
+                <i class="fa-solid fa-grid-2"></i> Dashboard Hub
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-20">
+        
+        <div class="text-center mb-24" data-aos="fade-up">
+            <span class="text-brand-blue text-xs font-bold tracking-[0.5em] uppercase mb-4 block">Onboarding Élite</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
+                GUIDE <span class="text-gold-gradient">D'INSCRIPTION</span>
+            </h1>
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                Suivez ce protocole avec rigueur. Nous avons ajouté des captures d'écran types pour vous guider à chaque étape.
+            </p>
+        </div>
+
+        <div class="space-y-24">
+            
+            <!-- Step 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                <div class="order-2 lg:order-1 flex gap-6 items-start">
+                    <div class="step-number">01</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-4 font-heading uppercase tracking-tight flex items-center gap-3">
+                            <i class="fa-solid fa-id-card text-brand-gold/50"></i>
+                            Vérification d'Identité
+                        </h3>
+                        <p class="text-brand-muted text-sm md:text-base leading-relaxed mb-8">
+                            Inscrivez-vous sur <b>FXcess</b>. C'est ici que vous déposerez votre capital. La validation (KYC) est obligatoire pour la sécurité bancaire.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-8">
+                            <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-center">
+                                <span class="text-brand-gold font-bold text-[9px] uppercase block">SCAN RECTO/VERSO</span>
+                            </div>
+                            <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-center">
+                                <span class="text-brand-gold font-bold text-[9px] uppercase block">DÉLAI : 2-12H</span>
+                            </div>
+                        </div>
+
+                        <div class="coach-note">
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                <b class="text-brand-gold uppercase tracking-tighter mr-1">Astuce :</b> Si vous utilisez un RIB Revolut, Lydia ou N26, votre profil sera souvent validé plus rapidement car l'adresse est déjà certifiée.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-image text-3xl text-white/20 mb-3 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Espace Client KYC</span>
+                            <p class="text-[9px] text-gray-600 mt-2 italic px-8">Image du bouton "Mettre à jour les documents" dans le menu de gauche.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                <div class="order-1 flex gap-6 items-start">
+                    <div class="step-number">02</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-4 font-heading uppercase tracking-tight flex items-center gap-3">
+                            <i class="fa-solid fa-gears text-brand-gold/50"></i>
+                            Configuration Compte
+                        </h3>
+                        <p class="text-brand-muted text-sm md:text-base leading-relaxed mb-6">
+                            Dans votre espace FXcess, créez un compte de trading réel avec les paramètres d'élite :
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3 p-4 bg-black/30 rounded-2xl border border-brand-blue/20">
+                                <i class="fa-solid fa-check text-brand-blue text-xs"></i>
+                                <span class="text-white text-xs font-bold uppercase tracking-tighter">MetaTrader 4 (MT4)</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-4 bg-black/30 rounded-2xl border border-brand-gold/20">
+                                <i class="fa-solid fa-check text-brand-gold text-xs"></i>
+                                <span class="text-white text-xs font-bold uppercase tracking-tighter">Effet de Levier : 1:500</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-4 bg-black/30 rounded-2xl border border-white/10">
+                                <i class="fa-solid fa-check text-white text-xs"></i>
+                                <span class="text-white text-xs font-bold uppercase tracking-tighter">Type : Standard ou RAW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-2">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-image text-3xl text-white/20 mb-3 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Formulaire Compte MT4</span>
+                            <p class="text-[9px] text-gray-600 mt-2 italic px-8">Capture montrant le sélecteur "Platform MT4" et "Leverage 1:500".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                <div class="order-2 lg:order-1 flex gap-6 items-start">
+                    <div class="step-number">03</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-4 font-heading uppercase tracking-tight flex items-center gap-3">
+                            <i class="fa-solid fa-mobile-screen text-brand-gold/50"></i>
+                            Connexion Mobile
+                        </h3>
+                        <p class="text-brand-muted text-sm md:text-base leading-relaxed mb-6">
+                            Regardez l'email envoyé par FXcess (Vérifiez les spams). Vous y trouverez vos identifiants à entrer dans l'application MT4 :
+                        </p>
+                        
+                        <div class="bg-black/60 rounded-3xl p-6 border border-white/5 space-y-4">
+                            <p class="text-[10px] text-gray-500 uppercase font-bold mb-2">Checklist Connexion :</p>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i class="fa-solid fa-magnifying-glass text-brand-blue"></i>
+                                <span>Serveur : <b class="text-white">FXcess-Real / Live</b></span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i class="fa-solid fa-user text-brand-blue"></i>
+                                <span>Login : <b class="text-white">N° de compte (ex: 801xxx)</b></span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i class="fa-solid fa-key text-brand-blue"></i>
+                                <span>Password : <b class="text-white">Mot de passe Master</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-image text-3xl text-white/20 mb-3 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Écran Connexion MT4</span>
+                            <p class="text-[9px] text-gray-600 mt-2 italic px-8">Screenshot de l'app mobile sur l'onglet "Nouvelle compte > Compte Existant".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                <div class="order-1 flex gap-6 items-start">
+                    <div class="step-number">04</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-4 font-heading uppercase tracking-tight flex items-center gap-3">
+                            <i class="fa-solid fa-flag-checkered text-brand-gold/50"></i>
+                            Accès Intégral VIP
+                        </h3>
+                        <p class="text-brand-muted text-sm md:text-base leading-relaxed mb-8">
+                            Dès que votre capital est déposé (min. 250€ recommandé), envoyez une preuve de dépôt au support si vous n'êtes pas validé automatiquement.
+                        </p>
+                        
+                        <a href="https://t.me/+5Ula4HJ44uBhNDc0" target="_blank" class="w-full inline-flex items-center justify-center gap-4 px-10 py-5 bg-brand-gold text-brand-dark font-black rounded-2xl text-base uppercase tracking-widest shadow-[0_10px_40px_rgba(201,166,107,0.3)] hover:scale-105 transition-all">
+                            <i class="fa-brands fa-telegram text-2xl"></i> REJOINDRE LE VIP TELEGRAM
+                        </a>
+                    </div>
+                </div>
+                <div class="order-2">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-image text-3xl text-white/20 mb-3 block"></i>
+                            <span class="text-[10px] text-gray-500 uppercase font-black tracking-widest">Capture : Preuve de Dépôt / Canal VIP</span>
+                            <p class="text-[9px] text-gray-600 mt-2 italic px-8">Exemple de screenshot d'un message Telegram VIP.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-32 text-center" data-aos="zoom-in">
+            <h4 class="font-heading text-2xl font-bold mb-4 uppercase">Toujours bloqué ?</h4>
+            <p class="text-brand-muted mb-8 max-w-lg mx-auto">Notre équipe support vérifie les comptes manuellement 7j/7 pour vous permettre de trader le plus vite possible.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-headset text-brand-gold"></i> Support Technique
+                </a>
+                <a href="#" class="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-green-500"></i> WhatsApp Concierge
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-12 border-t border-white/5 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">&copy; 2026 Invest For Real - Excellence, Vision & Rentabilité</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexique Élite | Invest For Real</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050A18',
+                            card: '#0A1128',
+                            blue: '#0047FF',
+                            gold: '#C9A66B',
+                            lightGold: '#F0E68C',
+                            text: '#E5E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050A18;
+            color: #E5E8F0;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .glass-card {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(201, 166, 107, 0.4);
+            transform: translateY(-5px);
+            background: rgba(10, 17, 40, 0.8);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #C9A66B, #F0E68C, #C9A66B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-pill {
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94A3B8;
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .category-pill.active {
+            background: #0047FF;
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(0, 71, 255, 0.3);
+        }
+
+        .term-card.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="py-6 border-b border-white/5 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="rr-invest-final.html" class="flex items-center gap-3 group">
+                <img src="Ressurce Branding/LOGO.png" alt="Invest For Real" class="w-10 h-10 object-contain group-hover:scale-110 transition-transform">
+                <div class="flex flex-col">
+                    <span class="font-heading font-black text-white tracking-wider leading-none text-xl">INVEST</span>
+                    <span class="text-[8px] text-brand-gold tracking-[0.3em] font-bold">FOR REAL</span>
+                </div>
+            </a>
+            <a href="hub-vision.html" class="text-xs font-bold text-brand-gold hover:text-white transition-colors uppercase tracking-[0.2em] flex items-center gap-2">
+                <i class="fa-solid fa-grid-2"></i> Retour au Hub
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-brand-gold text-xs font-bold tracking-[0.5em] uppercase mb-4 block">Knowledge Base</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
+                LEXIQUE <span class="text-gold-gradient">ÉLITE</span>
+            </h1>
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                Parlez la langue des 1%. Toutes les définitions techniques indispensables pour dominer l'écosystème Invest For Real.
+            </p>
+        </div>
+
+        <!-- Filter -->
+        <div class="flex flex-wrap justify-center gap-3 mb-16" data-aos="fade-up">
+            <button class="category-pill active" data-filter="all">Tous</button>
+            <button class="category-pill" data-filter="risk">Gestion de Risque</button>
+            <button class="category-pill" data-filter="order">Passage d'Ordre</button>
+            <button class="category-pill" data-filter="style">Styles de Trading</button>
+            <button class="category-pill" data-filter="tech">Mathématiques & Tech</button>
+        </div>
+
+        <!-- Terms Grid -->
+        <div id="termsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- --- CATEGORY: RISK --- -->
+
+            <!-- Stop Loss (SL) -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="risk" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Stop Loss (SL)</h3>
+                    <span class="text-[9px] px-2 py-1 bg-red-500/10 text-red-500 border border-red-500/20 rounded font-black uppercase tracking-tighter">RISQUE</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Le filet de sécurite absolu. C'est l'ordre automatique qui clôture votre position à un prix prédéfini pour limiter vos pertes si le marché va contre vous.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Ne jamais trader sans SL. Mon SL est ajusté selon la volatilité."</div>
+            </div>
+
+            <!-- Break-Even (BE) -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="risk" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Break-Even (BE)</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded font-black uppercase tracking-tighter">SÉCURITÉ</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Action de déplacer son Stop Loss au prix d'entrée exact une fois que le trade est en profit. Cela rend le trade "gratuit" (risque zéro).</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Je suis passé à BE après le premier objectif atteint."</div>
+            </div>
+
+            <!-- Drawdown -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="risk" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Drawdown</h3>
+                    <span class="text-[9px] px-2 py-1 bg-red-500/10 text-red-500 border border-red-500/20 rounded font-black uppercase tracking-tighter">RISQUE</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">La baisse maximale enregistrée entre un sommet de votre capital et un creux. C'est l'indicateur clé de la santé d'une stratégie.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Nous maintenons un drawdown inférieur à 5% sur nos comptes d'élite."</div>
+            </div>
+
+            <!-- Money Management -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="risk" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Money Management</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded font-black uppercase tracking-tighter">SÉCURITÉ</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">L'ensemble de vos règles de gestion du capital. Cela inclut le risque par trade, la taille des lots et la gestion émotionnelle.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Le Money Management gagne les guerres, la stratégie gagne les batailles."</div>
+            </div>
+
+            <!-- --- CATEGORY: ORDER --- -->
+
+            <!-- Take Profit (TP) -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="order" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Take Profit (TP)</h3>
+                    <span class="text-[9px] px-2 py-1 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded font-black uppercase tracking-tighter">GAINS</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">L'ordre automatique qui clôture votre trade pour encaisser vos profits une fois que le prix atteint votre objectif cible.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Objectif TP2 atteint sur l'Or, sécurisation des profits en cours."</div>
+            </div>
+
+            <!-- Lot -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="order" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Lot</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded font-black uppercase tracking-tighter">VOLUME</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">L'unité de mesure du volume de votre transaction. 1 lot standard représente 100 000 unités de la devise de base.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Calculez toujours votre loteria selon votre risque de 1%."</div>
+            </div>
+
+            <!-- Point d'Entrée (PE) -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="order" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Point d'Entrée (PE)</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded font-black uppercase tracking-tighter">ORDRE</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Le niveau de prix précis auquel vous ouvrez votre position. Un bon PE est souvent corrélé à un ratio risque/gain optimisé.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"On attend la zone de PE indiquée dans le canal VIP."</div>
+            </div>
+
+            <!-- Spread -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="order" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Spread</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded font-black uppercase tracking-tighter">COÛTS</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">La différence entre le prix d'achat (Ask) et le prix de vente (Bid). C'est la commission que prend le broker sur chaque trade.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Le spread est minimal sur les comptes ECN."</div>
+            </div>
+
+            <!-- --- CATEGORY: STYLE --- -->
+
+            <!-- Scalping -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="style" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Scalping</h3>
+                    <span class="text-[9px] px-2 py-1 bg-purple-500/10 text-purple-500 border border-purple-500/20 rounded font-black uppercase tracking-tighter">HYPER-RAPIDE</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Style de trading hyper-réactif visant à capturer de très petits profits sur une multitude de trades durant quelques secondes ou minutes.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Session de scalping intensive sur le Nasdaq ce matin."</div>
+            </div>
+
+            <!-- Intraday -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="style" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Intraday / Day Trading</h3>
+                    <span class="text-[9px] px-2 py-1 bg-purple-500/10 text-purple-500 border border-purple-500/20 rounded font-black uppercase tracking-tighter">SESSION</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Ouvrir et fermer ses positions au sein de la même journée. Aucune position n'est gardée ouverte pendant la nuit.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Nos signaux intraday permettent de dormir l'esprit libre."</div>
+            </div>
+
+            <!-- Swing Trading -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="style" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Swing Trading</h3>
+                    <span class="text-[9px] px-2 py-1 bg-purple-500/10 text-purple-500 border border-purple-500/20 rounded font-black uppercase tracking-tighter">LONG TERME</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Style de trading où les positions sont maintenues pendant plusieurs jours, voire semaines, pour capturer des mouvements majeurs.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Le swing trading demande de la patience et un recul stratégique."</div>
+            </div>
+
+            <!-- --- CATEGORY: TECH --- -->
+
+            <!-- Risk/Reward (RR) -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="tech" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Risk/Reward (RR)</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded font-black uppercase tracking-tighter">RATIO</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Le rapport entre ce que vous risquez et ce que vous visez à gagner. Un RR de 1:3 signifie qu'on risque 1€ pour en gagner 3.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Un trade RR 1:5 rattrape toutes vos petites erreurs."</div>
+            </div>
+
+            <!-- Pip / Point -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="tech" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Pip / Point</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded font-black uppercase tracking-tighter">MESURE</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">L'unité minimale de variation du prix d'un actif. Pour l'EURUSD, c'est souvent la 4ème décimale (0.0001).</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Target atteint à +50 pips."</div>
+            </div>
+
+            <!-- Effet de Levier -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="tech" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Effet de Levier</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded font-black uppercase tracking-tighter">FORCE</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Outil permettant d'ouvrir des positions plus importantes que votre capital propre. Un levier 1:500 multiplie votre capacité d'achat par 500.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Le levier est une épée à double tranchant. Utilisez-le avec discipline."</div>
+            </div>
+
+            <!-- Marge -->
+            <div class="term-card glass-card p-8 rounded-3xl" data-category="tech" data-aos="zoom-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-white font-heading">Marge</h3>
+                    <span class="text-[9px] px-2 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded font-black uppercase tracking-tighter">GARANTIE</span>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed mb-6">Le montant minimal requis sur votre compte pour maintenir une position ouverte avec levier. C'est votre collatéral de sécurité.</p>
+                <div class="text-[10px] text-brand-gold font-bold italic border-t border-white/5 pt-4">"Surveillez votre niveau de marge pour éviter le Margin Call."</div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="py-12 border-t border-white/5 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">&copy; 2026 Invest For Real - Excellence, Vision & Rentabilité</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Category Filtering Logic
+        const filterBtns = document.querySelectorAll('.category-pill');
+        const termCards = document.querySelectorAll('.term-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                termCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                        // Animation replay
+                        card.style.opacity = "0";
+                        setTimeout(() => {
+                            card.style.opacity = "1";
+                        }, 50);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

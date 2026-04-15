@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist du Trader Élite | Invest For Real</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050A18',
+                            card: '#0A1128',
+                            blue: '#0047FF',
+                            gold: '#C9A66B',
+                            lightGold: '#F0E68C',
+                            text: '#E5E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050A18;
+            color: #E5E8F0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(0, 71, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(201, 166, 107, 0.05) 0%, transparent 40%);
+        }
+
+        .glass-card {
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #C9A66B, #F0E68C, #C9A66B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .check-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .check-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(201, 166, 107, 0.2);
+        }
+
+        .check-item.active {
+            border-color: #C9A66B;
+            background: rgba(201, 166, 107, 0.05);
+        }
+
+        .check-item.active .check-icon {
+            background: #C9A66B;
+            color: #050A18;
+            transform: scale(1.1);
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: transparent;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            flex-shrink: 0;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-inner {
+            height: 100%;
+            background: linear-gradient(to right, #C9A66B, #F0E68C);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .coach-note {
+            background: rgba(0, 71, 255, 0.03);
+            border-radius: 24px;
+            border-left: 4px solid #0047FF;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="py-6 border-b border-white/5 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="rr-invest-final.html" class="flex items-center gap-3">
+                <img src="Ressurce Branding/LOGO.png" alt="Invest For Real" class="w-10 h-10 object-contain">
+                <div class="flex flex-col text-left">
+                    <span class="font-heading font-black text-white tracking-wider leading-none text-xl">INVEST</span>
+                    <span class="text-[8px] text-brand-gold tracking-[0.3em] font-bold">FOR REAL</span>
+                </div>
+            </a>
+            <a href="hub-vision.html" class="text-xs font-bold text-brand-gold hover:text-white transition-colors uppercase tracking-[0.2em] flex items-center gap-2">
+                <i class="fa-solid fa-grid-2"></i> Dashboard Hub
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-20">
+        
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-brand-blue text-xs font-bold tracking-[0.5em] uppercase mb-4 block">Discipline Is Freedom</span>
+            <h1 class="font-heading text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight">
+                CHECKLIST DU <span class="text-gold-gradient">TRADER ÉLITE</span>
+            </h1>
+            <p class="text-brand-muted text-lg max-w-xl mx-auto">
+                Ne soyez pas un parieur. Soyez un investisseur rigoureux. Validez chaque point avant d'engager votre capital.
+            </p>
+
+            <div class="mt-12 max-w-md mx-auto">
+                <div class="flex justify-between text-[10px] font-black uppercase tracking-widest text-brand-gold mb-2">
+                    <span>Préparation Session</span>
+                    <span id="progress-text">0% Complétés</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-inner" id="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-12">
+            
+            <!-- Phase 1: Mindset -->
+            <section data-aos="fade-up">
+                <h3 class="text-sm font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-brand-gold/30"></span>
+                    PHASE 1 : ÉTAT MENTAL
+                </h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Détachement Émotionnel</h4>
+                            <p class="text-[11px] text-brand-muted">Je suis prêt à accepter une perte sans que cela n'affecte mon humeur ou mon prochain trade.</p>
+                        </div>
+                    </div>
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Focus & Environnement</h4>
+                            <p class="text-[11px] text-brand-muted">Je suis dans un endroit calme, sans distractions, et ma batterie mobile/PC est suffisante.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 2: Context -->
+            <section data-aos="fade-up">
+                <h3 class="text-sm font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-brand-blue/30"></span>
+                    PHASE 2 : CONTEXTE MARCHÉ
+                </h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Calendrier Économique</h4>
+                            <p class="text-[11px] text-brand-muted">J'ai vérifié Investing.com. Aucune annonce "3 étoiles" (CPI, NFP, FOMC) n'est prévue dans les 60 prochaines minutes.</p>
+                        </div>
+                    </div>
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Validation de la Zone</h4>
+                            <p class="text-[11px] text-brand-muted">Le prix est-il toujours dans la zone d'entrée (PE) du signal ? Si trop loin (> 5 pips), je m'abstiens.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 3: Risk -->
+            <section data-aos="fade-up">
+                <h3 class="text-sm font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-brand-gold/30"></span>
+                    PHASE 3 : GESTION DU RISQUE
+                </h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Calcul du Lot Pro</h4>
+                            <p class="text-[11px] text-brand-muted">J'ai utilisé le calculateur Invest For Real. Mon risque est limité à 1% (ou 0.5%) de mon capital total.</p>
+                        </div>
+                    </div>
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Règle des 3 Positions</h4>
+                            <p class="text-[11px] text-brand-muted">J'ai calculé les 3 lots (45% / 35% / 20%) pour mes 3 Take Profits (TP1, TP2, TP3).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 4: Execution -->
+            <section data-aos="fade-up">
+                <h3 class="text-sm font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-brand-blue/30"></span>
+                    PHASE 4 : EXÉCUTION & SUIVI
+                </h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Double Check SL/TP</h4>
+                            <p class="text-[11px] text-brand-muted">Mes 3 ordres ont exactement le même Stop Loss. Mes TP sont correctement saisis.</p>
+                        </div>
+                    </div>
+                    <div class="check-item glass-card p-5 rounded-2xl flex items-center gap-4 border border-white/5" onclick="toggleCheck(this)">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-white mb-1">Protocole BE Prêt</h4>
+                            <p class="text-[11px] text-brand-muted">Je sais que je dois passer à Break-Even (entrée) sur les ordres 2 et 3 dès que TP1 est touché.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="coach-note mt-20 p-8 glass-card border border-brand-blue/20" data-aos="zoom-in">
+            <h4 class="text-brand-blue font-black text-xs uppercase tracking-widest mb-3">CONSEIL DU COACH</h4>
+            <p class="text-[12px] text-brand-muted italic leading-relaxed">
+                "Le trading n'est pas une question de prédiction, mais de probabilités et de discipline. Si une seule de ces cases n'est pas cochée, le meilleur trade que vous puissiez faire est de ne pas en prendre."
+            </p>
+        </div>
+
+    </main>
+
+    <footer class="py-12 text-center opacity-40">
+        <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Invest For Real &copy; 2026 - Excellence, Vision & Rigueur</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function toggleCheck(el) {
+            el.classList.toggle('active');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const total = document.querySelectorAll('.check-item').length;
+            const checked = document.querySelectorAll('.check-item.active').length;
+            const percentage = Math.round((checked / total) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-text').innerText = percentage + '% Complétés';
+
+            if(percentage === 100) {
+                document.getElementById('progress-text').classList.add('text-green-500');
+                document.getElementById('progress-text').innerText = 'PRÊT POUR L\'EXÉCUTION';
+            } else {
+                document.getElementById('progress-text').classList.remove('text-green-500');
+            }
+        }
+    </script>
+</body>
+</html>

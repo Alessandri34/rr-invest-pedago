@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Position & Money Management | Invest For Real</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #050A18;
+            --bg-card: #0A1128;
+            --accent-blue: #0047FF;
+            --accent-gold: #C9A66B;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --glass-bg: rgba(10, 17, 40, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --success: #10B981;
+            --danger: #EF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-image: radial-gradient(circle at 10% 10%, rgba(0, 71, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(201, 166, 107, 0.05) 0%, transparent 40%);
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-heading {
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 35px;
+        }
+
+        .logo span {
+            font-size: 1.2rem;
+            color: white;
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .type-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .type-btn.active.buy {
+            background: var(--success);
+            color: white;
+        }
+
+        .type-btn.active.sell {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Results Matrix */
+        .results-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .lot-row {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--glass-border);
+            align-items: center;
+        }
+
+        .lot-row:last-child {
+            border-bottom: none;
+        }
+
+        .lot-info h4 {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .lot-info p {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .risk-tag {
+            font-size: 0.75rem;
+            color: var(--danger);
+            margin-top: 5px;
+            display: block;
+        }
+
+        .tp-flow {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tp-step {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .tp-step::after {
+            content: "\f0da";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--glass-border);
+            font-size: 0.8rem;
+        }
+
+        .tp-step:last-child::after {
+            display: none;
+        }
+
+        .tp-step .step-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .tp-step .step-gain {
+            color: var(--success);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .tp-step .step-lot {
+            font-size: 0.65rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .be-badge {
+            background: var(--accent-blue);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 900;
+            padding: 2px 6px;
+            border-radius: 4px;
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        /* Educational Sections */
+        .edu-section {
+            margin-top: 100px;
+        }
+
+        .edu-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .edu-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .edu-title p {
+            color: var(--text-muted);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .bento-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 40px;
+            transition: 0.3s;
+        }
+
+        .bento-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .bento-card.wide {
+            grid-column: span 2;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(201, 166, 107, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
+
+        .bento-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .bento-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: rgba(0, 71, 255, 0.05);
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .lot-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-card.wide {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header data-aos="fade-down">
+            <a href="rr-invest-v2.html" class="logo">
+                <img src="Ressurce Branding/LOGO.png" alt="Invest For Real">
+                <span>RR <b style="color:var(--accent-gold)">INVEST</b></span>
+            </a>
+            <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 800;">DASHBOARD DE GESTION ELITE
+            </div>
+        </header>
+
+        <!-- CALCULATOR DASHBOARD -->
+        <div class="dashboard">
+            <!-- Parameters -->
+            <div class="card" data-aos="fade-right">
+                <h2 style="margin-bottom: 25px; font-size: 1.1rem;">Paramètres de Position</h2>
+
+                <div class="type-selector">
+                    <div class="type-btn active buy" onclick="ui.setType('BUY')">ACHAT (LONG)</div>
+                    <div class="type-btn sell" onclick="ui.setType('SELL')">VENTE (SHORT)</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Actif de trading</label>
+                    <select id="symbol" onchange="ui.update()">
+                        <optgroup label="Forex">
+                            <option value="EURUSD">EUR/USD</option>
+                            <option value="GBPUSD">GBP/USD</option>
+                            <option value="USDJPY">USD/JPY</option>
+                        </optgroup>
+                        <optgroup label="Métaux & Indices">
+                            <option value="XAUUSD">OR (XAU/USD)</option>
+                            <option value="US30">DOW JONES (US30)</option>
+                            <option value="NAS100">NASDAQ (NAS100)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px">
+                    <div class="input-group">
+                        <label>Prix d'Entrée</label>
+                        <input type="number" id="entry" step="0.00001" value="1.08500" oninput="ui.update()">
+                    </div>
+                    <div class="input-group">
+                        <label>Stop Loss (Définitif)</label>
+                        <input type="number" id="sl" step="0.00001" value="1.08300" oninput="ui.update()">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px">
+                    <div class="input-group">
+                        <label>Objectif 1</label>
+                        <input type="number" id="tp1" step="0.00001" value="1.08800" oninput="ui.update()">
+                    </div>
+                    <div class="input-group">
+                        <label>Objectif 2</label>
+                        <input type="number" id="tp2" step="0.00001" value="1.09200" oninput="ui.update()">
+                    </div>
+                    <div class="input-group">
+                        <label>Objectif 3</label>
+                        <input type="number" id="tp3" step="0.00001" value="1.09600" oninput="ui.update()">
+                    </div>
+                </div>
+
+                <div class="input-group"
+                    style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border)">
+                    <label>Capital de départ (€)</label>
+                    <input type="number" id="capital" value="1000" oninput="ui.update()">
+                </div>
+            </div>
+
+            <!-- Matrix Results -->
+            <div class="results-section" data-aos="fade-left">
+                <div class="main-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Risque Pips</div>
+                        <div class="stat-value" id="res-pips">20.0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">R:R Final</div>
+                        <div class="stat-value" id="res-rr" style="color:var(--accent-gold)">5.50</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Sécurité</div>
+                        <div class="stat-value" style="font-size: 0.85rem">BE @ TP1</div>
+                    </div>
+                </div>
+
+                <div class="card" style="flex-grow: 1;">
+                    <h3 style="margin-bottom: 20px; font-size: 0.9rem; color: var(--accent-gold);">Projections Invest For Real
+                        (45% / 35% / 20%)</h3>
+                    <div id="lot-matrix">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATIONAL SECTIONS -->
+        <section class="edu-section">
+            <div class="edu-title" data-aos="fade-up">
+                <h2>Bâtir son Mindset de Trader</h2>
+                <p>Le trading est un business de probabilités et de rigueur mathématique.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Section 1 -->
+                <div class="bento-card" data-aos="fade-up">
+                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>La Règle d'Or : Protection du Capital</h3>
+                    <p>Dans ce domaine, votre capital est votre outil de travail. Sans lui, vous ne pouvez plus produire
+                        de valeur. La règle est simple : ne risquez jamais plus de 1% de votre capital total sur un seul
+                        trade.</p>
+                    <div class="highlight-box">
+                        <b style="color: white">Le Conseil du CEO :</b> "Mieux vaut rater une opportunité que de risquer
+                        de ne plus pouvoir saisir les suivantes."
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="bento-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>L'Intelligence du Ratio R:R</h3>
+                    <p>Le secret des 1% n'est pas de gagner tout le temps, mais de gagner gros quand ils ont raison.
+                        Avec un ratio de 1:3, vous pouvez perdre 60% de vos trades et rester ultra-rentable.</p>
+                    <div class="highlight-box">
+                        <b style="color: white">Mathématique :</b> Gagner 100€ quand vous avez raison et perdre 30€
+                        quand vous avez tort. C'est ça l'asymétrie.
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="bento-card wide" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box"><i class="fa-solid fa-lock"></i></div>
+                    <h3>L'Art du Break-Even (BE)</h3>
+                    <p>La règle Invest For Real est stricte : dès que la position atteint l'Objectif 1, nous sécurisons
+                        systématiquement. Cela signifie déplacer le Stop Loss au prix d'entrée (BE) et encaisser 45% des
+                        profits directs. À partir de ce moment, votre trade est "gratuit" et sans risque psychologique.
+                    </p>
+                    <ul
+                        style="list-style: none; color: var(--text-muted); font-size: 0.9rem; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px">
+                        <li><i class="fa-solid fa-circle-check" style="color: var(--success); margin-right: 8px"></i>
+                            Élimine le stress émotionnel</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: var(--success); margin-right: 8px"></i>
+                            Protège vos fonds propres</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: var(--success); margin-right: 8px"></i>
+                            Permet de laisser courir le TP3</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: var(--success); margin-right: 8px"></i>
+                            Instaure une discipline de fer</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer
+            style="margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--glass-border); text-align: center; opacity: 0.5; font-size: 0.8rem;">
+            &copy; 2026 Invest For Real - Excellence en Trading & Money Management
+        </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        const TradeEngine = {
+            assets: {
+                'EURUSD': { pipSize: 0.0001, pipVal: 10, type: 'fx' },
+                'GBPUSD': { pipSize: 0.0001, pipVal: 10, type: 'fx' },
+                'USDJPY': { pipSize: 0.01, pipVal: 10, type: 'fx' },
+                'XAUUSD': { pipSize: 0.1, pipVal: 1, type: 'gold' },
+                'US30': { pipSize: 1, pipVal: 1, type: 'idx' },
+                'NAS100': { pipSize: 1, pipVal: 1, type: 'idx' }
+            },
+
+            calculate(p) {
+                const asset = this.assets[p.symbol];
+                const slDist = Math.abs(p.entry - p.sl);
+                const pipsAtRisk = slDist / asset.pipSize;
+
+                const matrix = p.lots.map(totalLot => {
+                    let totalRisk;
+                    if (asset.type === 'fx') totalRisk = pipsAtRisk * asset.pipVal * totalLot;
+                    else if (asset.type === 'gold') totalRisk = slDist * 100 * totalLot;
+                    else totalRisk = slDist * 1 * totalLot;
+
+                    const tpResults = p.tps.map((tpVal, idx) => {
+                        const dist = Math.abs(p.entry - tpVal);
+                        const weight = [0.45, 0.35, 0.20][idx];
+                        const partialLot = (totalLot * weight).toFixed(2);
+                        let gain;
+                        if (asset.type === 'fx') gain = (dist / asset.pipSize) * asset.pipVal * partialLot;
+                        else if (asset.type === 'gold') gain = dist * 100 * partialLot;
+                        else gain = dist * 1 * partialLot;
+
+                        return { gain: gain.toFixed(2), lot: partialLot };
+                    });
+
+                    return {
+                        totalLot,
+                        risk: totalRisk.toFixed(2),
+                        percent: ((totalRisk / p.capital) * 100).toFixed(1),
+                        tpResults
+                    };
+                });
+
+                const maxDist = Math.abs(p.entry - p.tps[2]);
+                return {
+                    pipsAtRisk: pipsAtRisk.toFixed(1),
+                    rr: (maxDist / slDist).toFixed(2),
+                    matrix
+                };
+            },
+
+            formatVIPMessage(p, c) {
+                return `**SIGNAL Invest For Real**\nAsset: ${p.symbol}\nPE: ${p.entry}\nSL: ${p.sl} (BE après TP1)\nTP1: ${p.tps[0]} (45%)\nTP2: ${p.tps[1]} (35%)\nTP3: ${p.tps[2]} (20%)`;
+            }
+        };
+
+        const ui = {
+            currentType: 'BUY',
+            lots: [1, 0.5, 0.3, 0.1],
+
+            setType(t) {
+                this.currentType = t;
+                document.querySelectorAll('.type-btn').forEach(b => b.classList.toggle('active', b.innerText.includes(t === 'BUY' ? 'ACHAT' : 'VENTE')));
+                this.update();
+            },
+
+            update() {
+                const p = {
+                    symbol: document.getElementById('symbol').value,
+                    entry: parseFloat(document.getElementById('entry').value),
+                    sl: parseFloat(document.getElementById('sl').value),
+                    tps: [parseFloat(document.getElementById('tp1').value), parseFloat(document.getElementById('tp2').value), parseFloat(document.getElementById('tp3').value)],
+                    capital: parseFloat(document.getElementById('capital').value),
+                    lots: this.lots
+                };
+
+                const res = TradeEngine.calculate(p);
+
+                document.getElementById('res-pips').innerText = res.pipsAtRisk;
+                document.getElementById('res-rr').innerText = res.rr;
+
+                const list = document.getElementById('lot-matrix');
+                list.innerHTML = '';
+                res.matrix.forEach(m => {
+                    list.innerHTML += `
+                        <div class="lot-row">
+                            <div class="lot-info">
+                                <h4>Lot Total: ${m.totalLot}</h4>
+                                <p>-${m.risk}€ (Perte SL)</p>
+                                <span class="risk-tag">Risque capital: ${m.percent}%</span>
+                            </div>
+                            <div class="tp-flow">
+                                <div class="tp-step">
+                                    <span class="step-label">Obj. 1</span>
+                                    <span class="step-gain">+${m.tpResults[0].gain}€</span>
+                                    <span class="step-lot">${m.tpResults[0].lot} Lot</span>
+                                    <div class="be-badge">BE SÉCURISÉ</div>
+                                </div>
+                                <div class="tp-step">
+                                    <span class="step-label">Obj. 2</span>
+                                    <span class="step-gain">+${m.tpResults[1].gain}€</span>
+                                    <span class="step-lot">${m.tpResults[1].lot} Lot</span>
+                                </div>
+                                <div class="tp-step">
+                                    <span class="step-label">Obj. 3</span>
+                                    <span class="step-gain">+${m.tpResults[2].gain}€</span>
+                                    <span class="step-lot">${m.tpResults[2].lot} Lot</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        };
+
+        window.onload = () => ui.update();
+    </script>
+</body>
+
+</html>
