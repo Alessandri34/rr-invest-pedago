@@ -44,7 +44,7 @@
     </script>
 
     <style>
-        body {
+        html, body { overflow-x: hidden; width: 100%; position: relative; } body {
             background-color: #050A18;
             color: #E5E8F0;
             overflow-x: hidden;
@@ -98,7 +98,7 @@
         .term-card.hidden {
             display: none;
         }
-    </style>
+     @media (max-width: 768px) { .ambient-glow { display: none; } .glass-card { padding: 1.5rem !important; } .logo-image { width: 40px; height: 40px; } } </style>
 </head>
 <body class="antialiased">
 

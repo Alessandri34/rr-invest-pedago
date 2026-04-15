@@ -47,7 +47,7 @@
     </script>
 
     <style>
-        body {
+        html, body { overflow-x: hidden; width: 100%; position: relative; } body {
             background-color: #050A18;
             color: #E5E8F0;
             overflow-x: hidden;
@@ -75,7 +75,7 @@
             border-color: #C9A66B !important;
             box-shadow: 0 0 10px rgba(201, 166, 107, 0.2);
         }
-    </style>
+     @media (max-width: 768px) { .ambient-glow { display: none; } .glass-card { padding: 1.5rem !important; } .logo-image { width: 40px; height: 40px; } } </style>
 </head>
 <body class="antialiased">
 
@@ -110,7 +110,7 @@
             
             <!-- Left: Inputs -->
             <div class="lg:col-span-4 space-y-6" data-aos="fade-right">
-                <div class="glass-card p-8 rounded-3xl">
+                <div class="glass-card max-w-full p-8 rounded-3xl">
                     <h3 class="text-sm font-bold text-brand-gold uppercase tracking-widest mb-8">Simulation</h3>
                     
                     <div class="space-y-6">
@@ -152,7 +152,7 @@
 
             <!-- Right: Graph -->
             <div class="lg:col-span-8" data-aos="fade-left">
-                <div class="glass-card p-8 rounded-3xl h-[500px] flex flex-col">
+                <div class="glass-card max-w-full p-8 rounded-3xl h-[500px] flex flex-col">
                     <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Courbe de Croissance</h3>
                     <div class="flex-grow">
                         <canvas id="growthChart"></canvas>
